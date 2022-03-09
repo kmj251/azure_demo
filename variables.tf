@@ -26,5 +26,4 @@ variable "basic_tags" {
     Program     = "Cloud Platform"
     Project     = "PPM 220086"
   }
-
 }

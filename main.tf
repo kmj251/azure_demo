@@ -3,11 +3,11 @@ terraform {
   required_providers {
     azurerm = {
       source  = "hashicorp/azurerm"
-      version = "~> 2.65"
+      version = "2.98.0"
     }
   }
 
-  required_version = ">= 1.1.0"
+  required_version = "1.1.3"
 }
 
 provider "azurerm" {
@@ -56,14 +56,14 @@ resource "azurerm_route_table" "default" {
   tags                          = var.basic_tags
 
   route {
-    name                   = "internet"
+    name                   = "default"
     address_prefix         = "0.0.0.0/0"
     next_hop_type          = "VirtualAppliance"
     next_hop_in_ip_address = "10.156.194.5"
   }
 }
 
-resource "azurerm_subnet_route_table_association" "example" {
+resource "azurerm_subnet_route_table_association" "default" {
   subnet_id      = azurerm_subnet.default.id
   route_table_id = azurerm_route_table.default.id
 }
